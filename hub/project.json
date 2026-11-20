@@ -19,8 +19,7 @@
     "Set the course title, the language screen wording and the default language.",
     "Remember the learner's choice, so they return to the same language next time."
   ],
-  "owner": "Bryan Hurley",
-  "updated": "2026-11-20",
+  "no_demo": "A SCORM package needs an LMS to run it. The pictures show it.",
   "cover": "hub/cover.jpg",
   "gallery": [
     {
@@ -91,5 +90,7 @@
         }
       ]
     }
-  ]
+  ],
+  "owner": "Bryan Hurley",
+  "updated": "2026-11-20"
 }
