@@ -1,0 +1,123 @@
+{
+ "url": "package/index.html",
+ "viewport": [
+  1600,
+  1000
+ ],
+ "wait": 2500,
+ "setup": "/* Opens the package's launch page with no LMS, so nothing is recorded. __sample() sets an invented course title and language list in the framed selector, as a course builder does in conf/conf.js. __mirror() adds empty, invisible boxes over parts of the framed page so that marks can be measured; they draw nothing. */window.__sleep=ms=>new Promise(r=>setTimeout(r,ms));window.__w=()=>document.getElementById('sco-frame').contentWindow;window.__ready=async()=>{for(let i=0;i<80;i++){const w=__w();if(w&&w.langSel&&w.document.querySelector('.list-item'))return w;await __sleep(100);}throw new Error('language screen not ready');};window.__mirror=()=>{document.querySelectorAll('.__m').forEach(e=>e.remove());const w=__w(),d=w.document,fr=document.getElementById('sco-frame').getBoundingClientRect();const add=(id,el)=>{if(!el)return;const r=el.getBoundingClientRect();const m=document.createElement('div');m.className='__m';m.id=id;Object.assign(m.style,{position:'fixed',left:(fr.left+r.left)+'px',top:(fr.top+r.top)+'px',width:r.width+'px',height:r.height+'px',pointerEvents:'none',opacity:'0'});document.body.appendChild(m);};add('m-header',d.querySelector('.header'));add('m-ui',d.getElementById('ui'));add('m-list',d.getElementById('lang-list'));add('m-title',d.querySelector('h1'));add('m-selected',d.querySelector('.selected'));add('m-launch',d.getElementById('launch-course'));d.querySelectorAll('.list-item').forEach(li=>add('m-lang-'+li.dataset.language,li));};window.__sample=async()=>{const w=await __ready();w.CONF.COURSE_TITLE='Workplace Safety Essentials';w.CONF.SCOS=[{\"lang\": \"English\", \"label\": \"English\"}, {\"lang\": \"Irish\", \"label\": \"Gaeilge (Irish)\"}, {\"lang\": \"French\", \"label\": \"Français (French)\"}, {\"lang\": \"German\", \"label\": \"Deutsch (German)\"}, {\"lang\": \"Spanish\", \"label\": \"Español (Spanish)\"}, {\"lang\": \"Italian\", \"label\": \"Italiano (Italian)\"}, {\"lang\": \"Portuguese\", \"label\": \"Português (Portuguese)\"}, {\"lang\": \"Dutch\", \"label\": \"Nederlands (Dutch)\"}, {\"lang\": \"Polish\", \"label\": \"Polski (Polish)\"}, {\"lang\": \"Romanian\", \"label\": \"Română (Romanian)\"}, {\"lang\": \"Ukrainian\", \"label\": \"Українська (Ukrainian)\"}, {\"lang\": \"Chinese\", \"label\": \"简体中文 (Simplified Chinese)\"}];w.$('#lang-list').empty();w.langSel.renderList();w.langSel.restoreSelection();w.langSel.updatePhrases();await __sleep(500);__mirror();};window.__pick=async lang=>{const w=await __ready();w.$('[data-language='+lang+']').click();await __sleep(500);__mirror();};",
+ "cover": {
+  "reload": true,
+  "setup": "await __sample(); await __pick('Irish');",
+  "wait": 300
+ },
+ "gallery": [
+  {
+   "file": "01-languages.jpg",
+   "reload": true,
+   "setup": "await __sample();",
+   "wait": 300,
+   "caption": "When a learner opens the course, one screen lists all the languages in the package.",
+   "alt": "The language screen of a sample course, with 12 languages in a list and English selected"
+  },
+  {
+   "file": "02-chosen.jpg",
+   "setup": "await __pick('French');",
+   "wait": 300,
+   "caption": "The screen confirms the language that the learner selects. Launch Course then opens that language version.",
+   "alt": "The same screen with French selected, a confirmation message and the Launch Course button"
+  },
+  {
+   "file": "03-as-supplied.jpg",
+   "reload": true,
+   "setup": "await __ready(); await __sleep(300); __mirror();",
+   "wait": 300,
+   "caption": "As supplied, the package has six sample languages, a sample title and a placeholder logo for you to replace.",
+   "alt": "The language screen with its supplied settings: six languages, a sample title and a logo placeholder"
+  }
+ ],
+ "guides": [
+  {
+   "slug": "choose-your-language",
+   "title": "Choose the language of a course",
+   "for": "learners",
+   "steps": [
+    {
+     "reload": true,
+     "setup": "await __sample();",
+     "wait": 300,
+     "text": "If your language is not selected, select it in the list of languages.",
+     "marks": [
+      {
+       "n": "1",
+       "kind": "step",
+       "label": "Français (French)",
+       "selector": "#m-lang-French",
+       "pad": 0
+      }
+     ],
+     "crop": {
+      "targets": [
+       {
+        "selector": "#m-header"
+       },
+       {
+        "selector": "#m-ui"
+       }
+      ],
+      "pad": 0
+     }
+    },
+    {
+     "setup": "await __pick('French');",
+     "wait": 300,
+     "text": "Make sure that the message shows your language.",
+     "marks": [
+      {
+       "n": "A",
+       "kind": "area",
+       "label": "French language has been selected.",
+       "selector": "#m-selected",
+       "pad": 6
+      }
+     ],
+     "crop": {
+      "targets": [
+       {
+        "selector": "#m-header"
+       },
+       {
+        "selector": "#m-ui"
+       }
+      ],
+      "pad": 0
+     }
+    },
+    {
+     "wait": 200,
+     "text": "Select **Launch Course**. The course opens in your language.",
+     "marks": [
+      {
+       "n": "3",
+       "kind": "step",
+       "label": "Launch Course",
+       "selector": "#m-launch",
+       "pad": 5
+      }
+     ],
+     "crop": {
+      "targets": [
+       {
+        "selector": "#m-header"
+       },
+       {
+        "selector": "#m-ui"
+       }
+      ],
+      "pad": 0
+     }
+    }
+   ]
+  }
+ ]
+}

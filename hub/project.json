@@ -20,5 +20,76 @@
     "Remember the learner's choice, so they return to the same language next time."
   ],
   "owner": "Bryan Hurley",
-  "updated": "2026-11-20"
+  "updated": "2026-11-20",
+  "cover": "hub/cover.jpg",
+  "gallery": [
+    {
+      "src": "hub/gallery/01-languages.jpg",
+      "caption": "When a learner opens the course, one screen lists all the languages in the package.",
+      "alt": "The language screen of a sample course, with 12 languages in a list and English selected"
+    },
+    {
+      "src": "hub/gallery/02-chosen.jpg",
+      "caption": "The screen confirms the language that the learner selects. Launch Course then opens that language version.",
+      "alt": "The same screen with French selected, a confirmation message and the Launch Course button"
+    },
+    {
+      "src": "hub/gallery/03-as-supplied.jpg",
+      "caption": "As supplied, the package has six sample languages, a sample title and a placeholder logo for you to replace.",
+      "alt": "The language screen with its supplied settings: six languages, a sample title and a logo placeholder"
+    }
+  ],
+  "guides": [
+    {
+      "title": "Choose the language of a course",
+      "for": "learners",
+      "steps": [
+        {
+          "text": "If your language is not selected, select it in the list of languages.",
+          "image": "hub/guides/choose-your-language/01.jpg",
+          "marks": [
+            {
+              "kind": "step",
+              "x": 0,
+              "y": 23.25,
+              "w": 33.33,
+              "h": 7.69,
+              "n": "1",
+              "label": "Français (French)"
+            }
+          ]
+        },
+        {
+          "text": "Make sure that the message shows your language.",
+          "image": "hub/guides/choose-your-language/02.jpg",
+          "marks": [
+            {
+              "kind": "area",
+              "x": 34.17,
+              "y": 21.57,
+              "w": 65,
+              "h": 4.93,
+              "n": "A",
+              "label": "French language has been selected."
+            }
+          ]
+        },
+        {
+          "text": "Select **Launch Course**. The course opens in your language.",
+          "image": "hub/guides/choose-your-language/03.jpg",
+          "marks": [
+            {
+              "kind": "step",
+              "x": 34.25,
+              "y": 27.17,
+              "w": 11.73,
+              "h": 6.68,
+              "n": "3",
+              "label": "Launch Course"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
