@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "name": "Multi-Language SCORM Wrapper",
+  "tagline": "Puts several language versions of one e-learning module into a single SCORM 1.2 package, with a language choice screen.",
+  "summary": "An open-source package, kept under its MIT licence, for SCORM 1.2, a standard file format for e-learning courses. Learners pick a language, and the module opens in that language. The learning platform sees one course, however many languages are inside.",
+  "purpose": "courses",
+  "kind": "package",
+  "helps": [
+    "course builders",
+    "learners"
+  ],
+  "works_with": [
+    "SCORM"
+  ],
+  "runs_on": [],
+  "status": "experimental",
+  "features": [
+    "Offer one course in several languages without a separate course for each.",
+    "Set the course title, the language screen wording and the default language.",
+    "Remember the learner's choice, so they return to the same language next time."
+  ],
+  "owner": "Bryan Hurley",
+  "updated": "2026-11-20"
+}
